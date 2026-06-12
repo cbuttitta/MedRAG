@@ -1,0 +1,9 @@
+filename,source_name,section
+ada_nutrition.txt,ADA Standards of Care 2026,Nutrition Therapy and Medical Nutrition Therapy
+ada_exercise.txt,ADA Standards of Care 2026,Physical Activity and Exercise
+nih_diabetes.txt,NIH MedlinePlus,Type 2 Diabetes Management and Self-Care
+nih_high_cholestrol.txt,NIH MedlinePlus,High Cholesterol Treatment and Lifestyle Management
+nih_hypertension.txt,NIH MedlinePlus,High Blood Pressure Treatment and Lifestyle Management
+nih_hypothyroidism.txt,NIH MedlinePlus,Hypothyroidism Symptoms and Management
+nih_obesity.txt,NIH MedlinePlus,Obesity Treatment and Weight Management
+acc_aha_physical_activity.txt,Physical Activity Guidelines for Americans 2nd Edition,Key Guidelines for Adults and Chronic Conditions

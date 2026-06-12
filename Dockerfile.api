@@ -1,0 +1,27 @@
+# Use the official Python 3.11 slim image as the base.
+# 'slim' is a smaller variant that excludes compilers and dev tools,
+# reducing the final image size significantly.
+FROM python:3.11-slim
+
+# Set the working directory inside the container.
+# All subsequent commands run relative to this path.
+WORKDIR /app
+
+# Copy requirements.txt first, before the rest of the code.
+# Docker caches each instruction. If requirements.txt hasn't changed,
+# Docker reuses the cached pip install layer — making rebuilds much faster.
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Copy the rest of the application code.
+COPY api/ ./api/
+
+# Tell Docker that the container listens on port 5000.
+# This is documentation only — it doesn't publish the port.
+# The actual port binding happens in docker-compose.yml or ECS task definition.
+EXPOSE 5000
+
+# The command to run when the container starts.
+# Using 'python -m flask' ensures the module path is correct.
+CMD ["python", "-m", "flask", "--app", "api.app:create_app", "run",
+     "--host=0.0.0.0", "--port=5000"]

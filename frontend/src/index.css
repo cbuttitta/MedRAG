@@ -1,0 +1,92 @@
+:root {
+  --primary: #0369a1;
+  --primary-hover: #075985;
+  --primary-light: #e0f2fe;
+  --primary-text: #0c4a6e;
+
+  --text: #475569;
+  --text-h: #0f172a;
+  --text-muted: #64748b;
+
+  --bg: #f1f5f9;
+  --bg-card: #ffffff;
+  --bg-hover: #f8fafc;
+
+  --border: #e2e8f0;
+  --border-focus: #0369a1;
+
+  --error: #dc2626;
+  --error-bg: #fef2f2;
+  --error-border: #fca5a5;
+
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow: 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.06);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.06);
+
+  --radius: 8px;
+  --radius-lg: 12px;
+  --radius-full: 9999px;
+
+  --sans: system-ui, 'Segoe UI', Roboto, sans-serif;
+  --mono: ui-monospace, 'Cascadia Code', Consolas, monospace;
+
+  font: 15px/1.6 var(--sans);
+  color: var(--text);
+  background: var(--bg);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --primary: #38bdf8;
+    --primary-hover: #7dd3fc;
+    --primary-light: #082f49;
+    --primary-text: #bae6fd;
+
+    --text: #94a3b8;
+    --text-h: #f1f5f9;
+    --text-muted: #64748b;
+
+    --bg: #0f172a;
+    --bg-card: #1e293b;
+    --bg-hover: #263346;
+
+    --border: #334155;
+    --border-focus: #38bdf8;
+
+    --error: #f87171;
+    --error-bg: #2d1515;
+    --error-border: #7f1d1d;
+
+    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3);
+    --shadow: 0 1px 3px rgba(0, 0, 0, 0.35), 0 1px 2px rgba(0, 0, 0, 0.2);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.35), 0 2px 4px -2px rgba(0, 0, 0, 0.25);
+  }
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+}
+
+#root {
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+}
+
+h1, h2, h3 {
+  color: var(--text-h);
+  margin: 0;
+}
+
+p {
+  margin: 0;
+}

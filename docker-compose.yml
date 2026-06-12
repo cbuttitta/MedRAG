@@ -1,0 +1,41 @@
+services:
+
+  db:
+    image: pgvector/pgvector:pg16
+    container_name: medrag-postgres
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: medrag
+    ports:
+      - "5432:5432"
+    volumes:
+      - medrag_pgdata:/var/lib/postgresql/data
+
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile.api
+    ports:
+      - "5000:5000"
+    environment:
+      DATABASE_URL: postgresql://postgres:password@db:5432/medrag
+      OPENAI_API_KEY: ${OPENAI_API_KEY}
+      MEDRAG_API_KEY: ${MEDRAG_API_KEY}
+    depends_on:
+      - db
+
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile.frontend
+      args:
+        VITE_API_URL: http://localhost:5000
+        VITE_API_KEY: ${MEDRAG_API_KEY}
+    ports:
+      - "8080:80"
+    depends_on:
+      - api
+
+volumes:
+  medrag_pgdata:
